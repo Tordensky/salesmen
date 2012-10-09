@@ -3,7 +3,8 @@ CC = /opt/cilk/bin/cilk++
 
 
 # Remove -DGRAPHICS to compile with no graphic support (e.g. for measurements)
-CFLAGS = -O2 -Wall -DGRAPHICS
+CFLAGS = -O2 -Wall 
+#-DGRAPHICS
 
 # Use this for SDL (change the path to sdl-config to the correct
 # location if you're not running on rocks)
