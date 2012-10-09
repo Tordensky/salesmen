@@ -7,6 +7,7 @@
  * 
  * Modified by John Markus Bjørndalen, 2008-12-04, 2009-10-15. 
  *
+ * Code sucks test GIT
  */
 
 #include <stdio.h>
