@@ -96,7 +96,7 @@ void PlotRoute(char *path)
  */ 
 RouteDefinition *ShortestRoute(RouteDefinition *route)
 { 
-    int i;
+    
     RouteDefinition *bestRoute;
     
     if (route->nPlaced == nBags)
@@ -118,7 +118,7 @@ RouteDefinition *ShortestRoute(RouteDefinition *route)
         // position route->nPlaced). To do this, we copy 'route' to
         // newRoute and swap the bags in position 'i' and route->nPlaced
         // in newRoute.
-    for (i = route->nPlaced; i < nBags; i++)
+    cilk_for (int i = route->nPlaced; i < nBags; i++)
     {
             // newlength is the current route length + the path to bag number 'i'.
         double newLength = route->length + distanceTable[route->path[route->nPlaced-1]][route->path[i]];
