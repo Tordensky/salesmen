@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+  <title>INF-3201 &ndash; Assignment s: Race Trap</title>
+<style type="text/css">
+ .figur {border:none;border-top:solid 0.5pt; border-bottom:solid 0.5pt; .5pt;padding:1.0pt 0cm 0cm 0cm}
+ .figur p {text-align: center}
+</style>
+</head>
+
+<body>
+  <h2>INF-3201 Parallel Programming</h1>
+  <h1>Assignment 2: Race Trap</h2>
+
+  <h3>Story</h3>
+
+
+  <p>Now that Wile has a dessert map, it is time to set a trap. The
+  reasoning behind this trap is that if the RoadRunner is so fast,
+  then it must need a lot of energy.  Thus a way of catching the
+  RoadRunner is to lure it into spending more energy than it
+  gains.</p>
+
+  <p>Wile has bought a huge bag of corn from ACME. Using the excellent
+  map that we have previously generated for Wile he will now attempt
+  to place 15 portions of corn in a way so that the shortest possible
+  path between all corn-portions is longer than the energy obtained
+  from the corn allow the RoadRunner to traverse.</p>
+
+  <p>The RoadRunner can run 200 km on each portion of corn, so now we
+  need to calculate the minimum distance between the 15 portions that
+  Willie has placed and see if this is longer than 3000 km, in which
+  case Wile can eat.</p>
+
+  <div class="figur">
+    <p><img src="RaceTr3.jpg" width="273" height="288"></p>
+  <p>The shortest route for the race trap</p>
+  </div>
+
+  <h3>The Assignment</h3>
+
+  <p>Implement a parallel branch-and-bound algorithm to solve the
+  Traveling Salesman Problem. You can base your algorithm on the
+  sequential version given to you. Your code should use <a href="http://software.intel.com/en-us/articles/intel-cilk/"> Intel Cilk++ Software Development Kit</a>. 
+  The code should be able to run on any number
+  of CPUs, and the results must always be the same regardless of the
+  number of CPUs used. If you want to implement another algorithm than
+  the branch-and-bound algorithm to solve the Traveling Salesman
+  Problem, you should contact us first.</p>
+
+  <p>A report should be made that describes the various choices that
+  has been made, as well as individual techniques that has been
+  applied to improve performance. The performance impact of each the
+  applied techniques should be documented. In addition, the
+  scalability of your implementation and the achieved performance
+  should be discussed. Use Cilkscreen Race Detector and Cilkview Scalability Analyzer in  <a href="http://software.intel.com/en-us/articles/intel-cilk/"> Intel Cilk++ Software Development Kit</a> to analyze your implementation.</p>
+
+  <h3>Optimization</h3>
+
+  <p>Any optimization may be applied, but the result should be correct
+  (ie. give an reasonable answer) and independent of the number of
+  nodes that are used to achieve the solution. 
+  Any optimization that is applied must be thoroughly described.</p>
+
+
+  <h4>Hand-in</h4>
+
+	<p>You must follow the instructions given in the group session
+	(slides available on fronter). If the requirements given there are
+	not met, the hand-in will <i>not</i> be accepted.</p>
+	
+    <p>The deadline is Thursday, October 18th, 24:00</p>
+
+
+  <h3>Links</h3>
+
+  <ul>
+    <li><a href="code/RaceTrap.tar.gz">Race Map sequential code</a></li>
+    <li><a
+     href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">Wikipedia
+     article about the Traveling Salesman Problem</a></li>
+    <li><a
+     href="code/Cilk_Programmers_Guide.pdf"> Cilk++ Programmer's Guide</a></li>
+	<li><a
+     href="code/How_to_Survive_the_Multicore_Software_Revolution.pdf"> How to Survive the Multicore Software Revolution (eBook)</a></li>
+  </ul>
+
+  <hr>
+
+  <p>Lars Ailo Bongo, Brian Vinter, modified by Espen S. Johnsen, Lars Tiede, Phuong Ha.</p>
+</body>
+</html>
