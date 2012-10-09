@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
+#include <cilk.h>
 #include "graphicsScreen.h"
 #include "StopWatch.h"
 
