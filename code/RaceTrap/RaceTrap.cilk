@@ -217,7 +217,7 @@ static void ReadRoute()
 }
 
 
-int main (int argc, char **argv) 
+int cilk_main (int argc, char **argv) 
 {
     RouteDefinition *originalRoute, *res;
     int i;
