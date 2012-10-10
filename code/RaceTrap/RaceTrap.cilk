@@ -18,8 +18,7 @@
 #include "graphicsScreen.h"
 #include "StopWatch.h"
 #include "stack.h"
-#include <stack>
-using namespace std;
+
 
 typedef struct {
     int x; 
@@ -219,20 +218,26 @@ static void ReadRoute()
 }
 
 
-int test_stack()
+void test_stack()
 {
-    stack<int> mystack;
-    int sum (0);
-
-    for (int i=1;i<=10;i++) mystack.push(i);
-
-    while (!mystack.empty())
-    {
-        printf("Stack num: %d", mystack.top());
-        mystack.pop();
-    }
-
-    return 0;
+    stack_t *s, *s2;
+    
+    s = stack_create();
+    if (s == NULL) 
+        fatal_error("Stack creation failed\n");
+    
+    printf("Pushing item onto stack\n");
+    retval = stack_push(s, s);
+    if (retval < 0)
+        fatal_error("stack_push() failed\n");
+    
+    printf("Popping item from stack\n");
+    s2 = stack_pop(s);
+    if (s2 != s)
+        fatal_error("stack pop did not return expected item\n");
+    
+    
+    printf("Seems to work\n");
 }
 
 
