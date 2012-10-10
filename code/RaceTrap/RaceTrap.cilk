@@ -17,7 +17,6 @@
 #include <cilk.h>
 #include "graphicsScreen.h"
 #include "StopWatch.h"
-#include "linkedlist.c"
 
 typedef struct {
     int x; 
@@ -219,9 +218,7 @@ static void ReadRoute()
 
 void test_stack()
 {
-    list_t *list;
-    list = list_create();
-    //printf("Size of list: %d", list_size(list));
+    printf("HORE\n");
 }
 
 
