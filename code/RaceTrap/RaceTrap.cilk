@@ -217,6 +217,26 @@ static void ReadRoute()
 }
 
 
+int test_stack()
+{
+    stack<int> mystack;
+    int sum (0);
+
+    for (int i=1;i<=10;i++) mystack.push(i);
+
+    while (!mystack.empty())
+    {
+        sum += mystack.top();
+        mystack.pop();
+    }
+
+    cout << "total: " << sum << endl;
+    
+    return 0;
+}
+
+
+
 int cilk_main (int argc, char **argv) 
 {
     RouteDefinition *originalRoute, *res;
@@ -257,6 +277,8 @@ int cilk_main (int argc, char **argv)
     sleep(2);
     gs_exit();
 #endif  
+    
+    test_stack()
     
     return 0;
 }
