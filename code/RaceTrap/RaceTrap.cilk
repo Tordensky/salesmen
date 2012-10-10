@@ -15,9 +15,9 @@
 #include <unistd.h>
 #include <math.h>
 #include <cilk.h>
+#include "linkedlist.c"
 #include "graphicsScreen.h"
 #include "StopWatch.h"
-#inlcude "linkedlist.c"
 
 
 typedef struct {
