@@ -1,14 +1,11 @@
 /* Author: Steffen Viken Valvaag <steffenv@cs.uit.no> */
-#include "list.h"
-
 #include <stdlib.h>
 
 struct listnode;
-typedef struct listnode listnode_t;
 
+typedef struct listnode listnode_t;
 struct list;
 typedef struct list list_t;
-
 struct list_iter;
 typedef struct list_iter list_iter_t;
 
@@ -30,9 +27,9 @@ struct list_iter {
 
 static listnode_t *newnode(void *elem)
 {
-    listnode_t *node = (listnode_t*)malloc(sizeof(listnode_t));
-    if (node == NULL);
-	    
+    listnode_t *node = (listnode_t *) malloc(sizeof(listnode_t));
+    if (node == NULL)
+	    exit(1);
     node->next = NULL;
     node->prev = NULL;
     node->elem = elem;
@@ -41,8 +38,9 @@ static listnode_t *newnode(void *elem)
 
 list_t *list_create()
 {
-    list_t *list = malloc(sizeof(list_t));
-    if (list == NULL);
+    list_t *list = (list_t *)malloc(sizeof(list_t));
+    if (list == NULL)
+	    exit(1);
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;
@@ -96,7 +94,7 @@ void list_addlast(list_t *list, void *elem)
 void *list_popfirst(list_t *list)
 {
     if (list->head == NULL) {
-        return NULL; /* Never reached */
+	    exit(1);
     }
     else {
         void *elem = list->head->elem;
@@ -117,7 +115,7 @@ void *list_popfirst(list_t *list)
 void *list_poplast(list_t *list)
 {
     if (list->tail == NULL) {
-        return NULL; /* Never reached */
+        exit(1);
     }
     else {
         void *elem = list->tail->elem;
@@ -135,41 +133,38 @@ void *list_poplast(list_t *list)
     }
 }
 
-int list_contains(list_t *list, void *elem)
+
+list_iter_t *list_createiter(list_t *list)
 {
-    listnode_t *node = list->head;
-    while (node != NULL) {
-	    if (list->cmpfunc(elem, node->elem) == 0)
-	        return 1;
-	    node = node->next;
+    list_iter_t *iter = (list_iter_t *) malloc(sizeof(list_iter_t));
+    if (iter == NULL)
+	    exit(1);
+    iter->node = list->head;
+    return iter;
+}
+
+void list_destroyiter(list_iter_t *iter)
+{
+    free(iter);
+}
+
+int list_hasnext(list_iter_t *iter)
+{
+    if (iter->node == NULL)
+	    return 0;
+    else
+	    return 1;
+}
+
+void *list_next(list_iter_t *iter)
+{
+    if (iter->node == NULL) {
+	    exit(1);
     }
-    return 0;
+    else {
+	    void *elem = iter->node->elem;
+	    iter->node = iter->node->next;
+	    return elem;
+    }
 }
-
-int list_remove(list_t *list, void *elem)
-{
-	listnode_t *node = list->head;
-	while (node != NULL) {
-		if (list->cmpfunc(elem, node->elem) == 0) {
-			if (node->prev == NULL) {
-				list->head = node->next;
-			}
-			else {
-				node->prev->next = node->next;
-			}
-			if (node->next == NULL) {
-				list->tail = node->prev;
-			}
-			else {
-				node->next->prev = node->prev;
-			}
-			free(node);
-			list->size--;
-			return 1;
-		}
-		node = node->next;
-	}
-	return 0;	
-}
-
 
