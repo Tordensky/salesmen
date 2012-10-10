@@ -17,7 +17,7 @@
 #include <cilk.h>
 #include "graphicsScreen.h"
 #include "StopWatch.h"
-#include "stack.h"
+#inlcude "linkedlist.c"
 
 
 typedef struct {
@@ -220,25 +220,9 @@ static void ReadRoute()
 
 void test_stack()
 {
-    stack_t *s, *s2;
-    int retval;
-    
-    s = stack_create();
-    if (s == NULL) 
-        printf("Stack creation failed\n");
-    
-    printf("Pushing item onto stack\n");
-    retval = stack_push(s, s);
-    if (retval < 0)
-        printf("stack_push() failed\n"); 
-    
-    printf("Popping item from stack\n");
-    s2 = stack_pop(s);
-    if (s2 != s)
-        printf("stack pop did not return expected item\n");
-    
-    
-    printf("Seems to work\n");
+    list_t *list;
+    list = list_create(Null);
+    printf("Size of list: %d", list_size(list));
 }
 
 
