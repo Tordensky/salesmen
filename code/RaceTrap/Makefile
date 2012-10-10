@@ -9,7 +9,7 @@ CFLAGS = -O2 -Wall -DGRAPHICS
 # location if you're not running on rocks)
 RRLIB = ../lib
 INC = -I$(RRLIB) `sdl-config --cflags`
-LIB = -L$(RRLIB) -L/usr/X11R6/lib64 -L/usr/X11R6/lib -lX11 -lgraphicsScreen -lStopWatch  `sdl-config --libs`
+LIB = -L$(RRLIB) -L/usr/X11R6/lib64 -L/usr/X11R6/lib -lX11 -lgraphicsScreen -lStopWatch -lstack `sdl-config --libs`
 
 # and this for TinyPTC
 #RRLIB  = ../lib-TinyPTC
