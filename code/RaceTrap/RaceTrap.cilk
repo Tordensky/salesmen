@@ -277,7 +277,7 @@ int cilk_main (int argc, char **argv)
     gs_exit();
 #endif  
     
-    test_stack()
+    test_stack();
     
     return 0;
 }
