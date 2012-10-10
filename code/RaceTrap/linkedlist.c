@@ -22,7 +22,6 @@ struct list {
     listnode_t *head;
     listnode_t *tail;
     int size;
-    cmpfunc_t cmpfunc;
 };
 
 struct list_iter {
@@ -31,9 +30,9 @@ struct list_iter {
 
 static listnode_t *newnode(void *elem)
 {
-    listnode_t *node = malloc(sizeof(listnode_t));
+    listnode_t *node = (listnode_t*)malloc(sizeof(listnode_t));
     if (node == NULL)
-	    fatal_error("out of memory");
+	    printf("ERROR");
     node->next = NULL;
     node->prev = NULL;
     node->elem = elem;
