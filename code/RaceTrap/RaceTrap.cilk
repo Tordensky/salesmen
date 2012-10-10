@@ -15,10 +15,9 @@
 #include <unistd.h>
 #include <math.h>
 #include <cilk.h>
-#include "linkedlist.c"
 #include "graphicsScreen.h"
 #include "StopWatch.h"
-
+#include "linkedlist.c"
 
 typedef struct {
     int x; 
@@ -221,7 +220,7 @@ static void ReadRoute()
 void test_stack()
 {
     list_t *list;
-    list = list_create(Null);
+    list = list_create();
     printf("Size of list: %d", list_size(list));
 }
 
