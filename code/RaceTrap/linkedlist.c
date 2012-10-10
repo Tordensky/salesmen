@@ -2,10 +2,11 @@
 #include <stdlib.h>
 
 struct listnode;
-
 typedef struct listnode listnode_t;
+
 struct list;
 typedef struct list list_t;
+
 struct list_iter;
 typedef struct list_iter list_iter_t;
 
