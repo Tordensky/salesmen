@@ -17,6 +17,7 @@
 #include <cilk.h>
 #include "graphicsScreen.h"
 #include "StopWatch.h"
+#include "stack.h"
 #include <stack>
 using namespace std;
 
