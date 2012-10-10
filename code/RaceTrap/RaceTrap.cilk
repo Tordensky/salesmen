@@ -221,7 +221,7 @@ void test_stack()
 {
     list_t *list;
     list = list_create();
-    printf("Size of list: %d", list_size(list));
+    //printf("Size of list: %d", list_size(list));
 }
 
 
