@@ -17,6 +17,9 @@
 #include <cilk.h>
 #include "graphicsScreen.h"
 #include "StopWatch.h"
+#include <list>
+
+using namespace std;
 
 typedef struct {
     int x; 
@@ -29,6 +32,8 @@ typedef struct {
     unsigned char path[0];    // Array of vertex/bag numbers in the path (see comment in
                               // Alloc_RouteDefinition())
 } RouteDefinition; 
+
+typedef list<RouteDefinition> ROUTE_LIST
 
 
 int      nTotalCities = 0;             // Number of grain-bags
@@ -45,7 +50,7 @@ inline RouteDefinition* Alloc_RouteDefinition()
         fprintf(stderr, "Error: Alloc_RouteDefinition called with invalid nTotalCities (%d)\n", nTotalCities); 
         exit(-1); 
     }
-        // NB: The +nTotalCities*sizeof.. trick "expands" the path[0] array in RouteDefintion
+        // NB: The +nTotalCities*sizeof.. trick "expands" the path[0] array in RouteDefinition
         // to a path[nTotalCities] array.
     RouteDefinition *def = NULL;  
     return (RouteDefinition*) malloc(sizeof(RouteDefinition) + nTotalCities * sizeof(def->path[0]));
@@ -218,6 +223,13 @@ static void ReadRoute()
 
 void test_stack()
 {
+    
+    RouteDefinition testRoute;
+    
+    ROUTE_LIST list;
+    
+    list.insert(list.end(), testRoute);
+    
     printf("HORE\n");
 }
 
